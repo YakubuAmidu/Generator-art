@@ -1,11 +1,19 @@
-/* COLORS */
+@import "./variables";
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-};
+}
 
-body {
-  background-color: red;
+#canvas1 {
+  background-image: linear-gradient(
+    to right,
+    rgba($color-light-blue-1, 0.8),
+    rgba($color-light-blue-2, 0.8),
+    rgba($color-light-blue-3, 0.8)
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
 }
