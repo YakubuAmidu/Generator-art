@@ -13,8 +13,10 @@ window.addEventListener("load", function () {
   // Effect settings
   let size = 200;
 
-  ctx.fillRect(10, 10, 100, 100);
-
+  ctx.translate(200, 100);
+  ctx.scale(0.3, 0.3);
+  ctx.rotate(0.5);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
   ctx.moveTo(canvas.width / 2, canvas.height / 2);
   ctx.lineTo(size, canvas.height / 2);
