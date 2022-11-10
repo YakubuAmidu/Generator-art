@@ -20,7 +20,7 @@ window.addEventListener("load", function () {
   let scale = 0.5;
   let spread = 0.5;
   let branches = 2;
-  let color = "hsl(0, 100%, 50%)";
+  let color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
 
   function drawBranch(level) {
     if (level > maxLevel) return;
