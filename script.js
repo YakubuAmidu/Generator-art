@@ -1,8 +1,8 @@
 window.addEventListener("load", function () {
   const canvas = document.getElementById("canvas1");
   const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth * 0.8;
-  canvas.height = window.innerHeight * 0.8;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
   // Canvas settings
   ctx.fillStyle = "green";
@@ -12,22 +12,45 @@ window.addEventListener("load", function () {
 
   // Effect settings
   let size = 200;
-  let sides = 10;
-  ctx.save();
-  ctx.translate(canvas.width / 2, canvas.height / 2);
-  ctx.scale(1, 1);
-  ctx.rotate(0.9);
-  // ctx.fillRect(0,0,canvas.width,canvas.height);
+  let sides = 5;
+  let maxLevel = 3;
+  let scale = 0.5;
+  let spread = 0.8;
+  let branches = 3;
 
-  for (let i = 0; i < sides; i++) {
+  function drawBranch(level) {
+    if (level > maxLevel) return;
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(size, 0);
     ctx.stroke();
-    ctx.rotate((Math.PI * 2) / sides);
-    ctx.scale(0.99, 0.99);
-    ctx.translate(30, 50);
+    for (let i = 0; i < branches; i++) {
+      ctx.save();
+      ctx.translate(size - (size / branches) * i, 0);
+      ctx.rotate(spread);
+      ctx.scale(scale, scale);
+      drawBranch(level + 1);
+      ctx.restore();
+
+      ctx.save();
+      ctx.translate(size - (size / branches) * i, 0);
+      ctx.rotate(-spread);
+      ctx.scale(scale, scale);
+      drawBranch(level + 1);
+      ctx.restore();
+    }
   }
 
-  ctx.restore();
+  function drawFractal() {
+    ctx.save();
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    for (let i = 0; i < sides; i++) {
+      ctx.rotate((Math.PI * 2) / sides);
+      drawBranch(0);
+    }
+
+    ctx.restore();
+  }
+
+  drawFractal();
 });
