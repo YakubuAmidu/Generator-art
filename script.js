@@ -6,17 +6,21 @@ window.addEventListener("load", function () {
 
   // Canvas settings
   ctx.fillStyle = "green";
-  ctx.strokeStyle = "yellow";
-  ctx.lineWidth = 30;
+  ctx.lineWidth = 10;
   ctx.lineCap = "round";
+  ctx.shadowColor = "rgba(0,0,0,0.7)";
+  ctx.shadowOffsetX = 10;
+  ctx.shadowOffsetY = 5;
+  ctx.shadowBlur = 10;
 
   // Effect settings
   let size = 200;
   let sides = 5;
-  let maxLevel = 3;
+  let maxLevel = 4;
   let scale = 0.5;
-  let spread = 0.8;
-  let branches = 3;
+  let spread = 0.5;
+  let branches = 2;
+  let color = "hsl(0, 100%, 50%)";
 
   function drawBranch(level) {
     if (level > maxLevel) return;
@@ -43,6 +47,7 @@ window.addEventListener("load", function () {
 
   function drawFractal() {
     ctx.save();
+    ctx.strokeStyle = color;
     ctx.translate(canvas.width / 2, canvas.height / 2);
     for (let i = 0; i < sides; i++) {
       ctx.rotate((Math.PI * 2) / sides);

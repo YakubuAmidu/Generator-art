@@ -9,12 +9,7 @@
 }
 
 #canvas1 {
-  background-image: linear-gradient(
-    to right,
-    rgba(92, 92, 255, 0.8),
-    rgba(0, 0, 209, 0.8),
-    rgba(0, 0, 117, 0.8)
-  );
+  background-color: #000000;
   position: absolute;
   top: 50%;
   left: 50%;
