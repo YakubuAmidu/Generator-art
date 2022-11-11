@@ -125,7 +125,7 @@ window.addEventListener("load", function () {
     label_spread.innerText = "Spread: " + Number(spread).toFixed(1);
     slider_sides.value = sides;
     label_sides.innerText = "Sides: " + sides;
-  }
+  };
 
   updateSliders();
 
