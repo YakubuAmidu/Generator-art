@@ -112,7 +112,7 @@ window.addEventListener("load", function () {
     spread = 0.7;
     color = "hsl(290, 100%, 50%)";
     lineWidth = 15;
-  }
+  };
 
   resetButton.addEventListener("click", function () {
     resetFractal();
