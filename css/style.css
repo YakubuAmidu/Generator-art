@@ -5,16 +5,14 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 #canvas1 {
   background-color: #000000;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-}
+  transform: translate(-50%, -50%); }
 
 #controls {
   position: absolute;
@@ -23,28 +21,24 @@
   left: 20px;
   top: 20px;
   width: 250px;
-  background-color: rgba(255, 255, 255, 0.15);
-}
+  background-color: rgba(255, 255, 255, 0.15); }
 
 button {
   padding: 10px 40px;
   width: 225px;
   font-size: 20px;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .box {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-}
+  justify-content: space-between; }
 
 label,
 input {
   color: #ffffff;
-  font-size: 20px;
-}
+  font-size: 18px; }
 
 /*COLOR-BLUE-HEX-CODE*/
 /*COLOR-BROWN-HEX-CODE*/

@@ -19,7 +19,7 @@ window.addEventListener("load", function () {
   const branches = 2;
 
   let sides = 5;
-  let scale = 0.5;
+  let scale = 0.7;
   let spread = 0.1;
   let color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
   let lineWidth = Math.floor(Math.random() * 20 + 10);
@@ -67,6 +67,10 @@ window.addEventListener("load", function () {
 
       ctx.restore();
     }
+    
+    ctx.beginPath();
+    ctx.arc(0,size * 0.1,50,0,Math.PI * 2);
+    ctx.fill();
   }
 
   function drawFractal() {
@@ -74,11 +78,12 @@ window.addEventListener("load", function () {
     ctx.save();
     ctx.lineWidth = lineWidth;
     ctx.strokeStyle = color;
+    ctx.fillStyle = color;
     ctx.translate(canvas.width / 2, canvas.height / 2);
     for (let i = 0; i < sides; i++) {
       ctx.rotate((Math.PI * 2) / sides);
       drawBranch(0);
-    }
+    };
 
     ctx.restore();
     randomizeButton.style.background = color;
@@ -88,7 +93,7 @@ window.addEventListener("load", function () {
 
   function randomizeFractal() {
     sides = Math.floor(Math.random() * 7 + 2);
-    scale = Math.random() * 0.2 + 0.4;
+    scale = Math.random() * 0.4 + 0.4;
     spread = Math.random() * 2.9 + 0.1;
     color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
     drawFractal();
@@ -123,4 +128,10 @@ window.addEventListener("load", function () {
   }
 
   updateSliders();
+
+  window.addEventListener('resize', function(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    drawFractal();
+  });
 });
