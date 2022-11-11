@@ -14,7 +14,7 @@ window.addEventListener("load", function () {
   ctx.shadowBlur = 10;
 
   // Effect settings
-  let size = 200;
+  let size = canvas.width < canvas.height ? canvas.width * 0.3 : canvas.height * 0.3;
   let sides = 5;
   let maxLevel = 4;
   let scale = 0.5;
@@ -30,7 +30,7 @@ window.addEventListener("load", function () {
     ctx.stroke();
     for (let i = 0; i < branches; i++) {
       ctx.save();
-      ctx.translate(size - (size / branches) * i, 0);
+      ctx.translate(size - (size/branches) * i,0);
       ctx.rotate(spread);
       ctx.scale(scale, scale);
       drawBranch(level + 1);
