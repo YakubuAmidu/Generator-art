@@ -13,7 +13,8 @@ window.addEventListener("load", function () {
   ctx.shadowBlur = 10;
 
   // Effect settings
-  let size = canvas.width < canvas.height ? canvas.width * 0.3 : canvas.height * 0.3;
+  let size =
+    canvas.width < canvas.height ? canvas.width * 0.3 : canvas.height * 0.3;
   const maxLevel = 4;
   const branches = 2;
 
@@ -24,7 +25,15 @@ window.addEventListener("load", function () {
   let lineWidth = Math.floor(Math.random() * 20 + 10);
 
   // Controls
-  const randomizeButton = document.getElementById('randomizeButton');
+  const randomizeButton = document.getElementById("randomizeButton");
+  const slider_spread = document.getElementById("spread");
+  const label_spread = document.getElementById('[for="spread"]');
+
+  slider_spread.addEventListener("change", function (e) {
+    console.log(e.target.value);
+    spread = e.target.value;
+    drawFractal();
+  });
 
   function drawBranch(level) {
     if (level > maxLevel) return;
@@ -34,7 +43,7 @@ window.addEventListener("load", function () {
     ctx.stroke();
     for (let i = 0; i < branches; i++) {
       ctx.save();
-      ctx.translate(size - (size/branches) * i,0);
+      ctx.translate(size - (size / branches) * i, 0);
       ctx.scale(scale, scale);
 
       ctx.save();
@@ -52,7 +61,7 @@ window.addEventListener("load", function () {
   }
 
   function drawFractal() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
     ctx.lineWidth = lineWidth;
     ctx.strokeStyle = color;
@@ -67,7 +76,7 @@ window.addEventListener("load", function () {
 
   drawFractal();
 
-  function randomizeFractal(){
+  function randomizeFractal() {
     sides = Math.floor(Math.random() * 7 + 2);
     scale = Math.random() * 0.2 + 0.4;
     spread = Math.random() * 2.9 + 0.1;
@@ -76,7 +85,7 @@ window.addEventListener("load", function () {
     lineWidth = Math.floor(Math.random() * 20 + 10);
   }
 
-  randomizeButton.addEventListener('click', function(){
+  randomizeButton.addEventListener("click", function () {
     randomizeFractal();
     drawFractal();
   });
