@@ -67,9 +67,9 @@ window.addEventListener("load", function () {
 
       ctx.restore();
     }
-    
+
     ctx.beginPath();
-    ctx.arc(0,size * 0.1,50,0,Math.PI * 2);
+    ctx.arc(0, size * 0.1, 50, 0, Math.PI * 2);
     ctx.fill();
   }
 
@@ -83,7 +83,7 @@ window.addEventListener("load", function () {
     for (let i = 0; i < sides; i++) {
       ctx.rotate((Math.PI * 2) / sides);
       drawBranch(0);
-    };
+    }
 
     ctx.restore();
     randomizeButton.style.background = color;
@@ -129,7 +129,7 @@ window.addEventListener("load", function () {
 
   updateSliders();
 
-  window.addEventListener('resize', function(){
+  window.addEventListener("resize", function () {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     drawFractal();
