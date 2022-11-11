@@ -27,11 +27,12 @@ window.addEventListener("load", function () {
   // Controls
   const randomizeButton = document.getElementById("randomizeButton");
   const slider_spread = document.getElementById("spread");
-  const label_spread = document.getElementById('[for="spread"]');
+  const label_spread = document.querySelector('[for="spread"]');
 
   slider_spread.addEventListener("change", function (e) {
     console.log(e.target.value);
     spread = e.target.value;
+    updateSliders();
     drawFractal();
   });
 
@@ -87,6 +88,14 @@ window.addEventListener("load", function () {
 
   randomizeButton.addEventListener("click", function () {
     randomizeFractal();
+    updateSliders();
     drawFractal();
   });
+
+  function updateSliders() {
+    slider_spread.value = spread;
+    label_spread.innerText = "Spread: " + Number(spread).toFixed(1);
+  }
+
+  updateSliders();
 });
