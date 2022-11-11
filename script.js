@@ -98,7 +98,7 @@ window.addEventListener("load", function () {
     color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
     drawFractal();
     lineWidth = Math.floor(Math.random() * 20 + 10);
-  }
+  };
 
   randomizeButton.addEventListener("click", function () {
     randomizeFractal();
