@@ -87,7 +87,7 @@ window.addEventListener("load", function () {
 
     ctx.restore();
     randomizeButton.style.background = color;
-  }
+  };
 
   drawFractal();
 
