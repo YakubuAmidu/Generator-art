@@ -72,7 +72,7 @@ window.addEventListener("load", function () {
     }
 
     ctx.beginPath();
-    ctx.arc(0, size * 0.1, 50, 0, Math.PI * 2);
+    ctx.arc(-size / 2, 0, 40, 0, Math.PI * 2);
     ctx.fill();
   }
 
@@ -84,7 +84,8 @@ window.addEventListener("load", function () {
     ctx.fillStyle = color;
     ctx.translate(canvas.width / 2, canvas.height / 2);
     for (let i = 0; i < sides; i++) {
-      ctx.rotate((Math.PI * 2) / sides);
+      ctx.scale(0.95, 0.95);
+      ctx.rotate((Math.PI * 6) / sides);
       drawBranch(0);
     }
 
