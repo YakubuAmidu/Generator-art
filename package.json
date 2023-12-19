@@ -4,15 +4,15 @@
   "description": "Javascript game",
   "main": "index.js",
   "scripts": {
-    "start": "node-sass sass/main.scss css/style.css -w"
+    "start": "sass sass/main.scss css/style.css -w"
   },
   "author": "Yakubu",
   "license": "ISC",
   "dependencies": {
     "live-server": "^1.2.2",
-    "node-sass": "^7.0.3"
+    "sass": "^1.69.5"
   },
   "devDependencies": {
-    "prettier": "2.7.1"
+    "prettier": "3.1.1"
   }
 }
